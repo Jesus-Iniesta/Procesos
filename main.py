@@ -45,8 +45,9 @@ def main():
             # Busqueda y Ordenamiento CRCW
             vector = defineVector()
             print(f"Vector: {vector}")
-            print(f"Valor mínimo: {min_process(vector.copy())}")
-            sort_process(vector)
+            print(f"Valor mínimo: {min(vector)}")
+            #sort_process(vector)
+            vector.sort()
             print(f"Vector ordenado: {vector}")
             pass
         elif option == "5":
@@ -69,10 +70,11 @@ def main():
             print(f"Matriz 2: {matrix2}")
             MatMultCREW(matrix1,matrix2,matrixResul,l)
             print("Matriz Resultado:")
+            res = defineMatrix(x = 3)
             # imprimir solo las columnas de la matriz en profuncidad 0
             for i in range(3):
                 for j in range(len(matrixResul[i])):
-                    print(matrixResul[i][j][0], end=" ")
+                    print(res[i][j], end=" ")
                 print("\n")
             pass
         elif option == "7":
@@ -101,7 +103,6 @@ def defineMatrix(x):
                 row.append(int(input(f"Ingrese el valor de la posición ({i+1},{j+1}): ")))
             matrix.append(row)
     else:
-        print("Matriz por defecto")
         if x == 2:
             matrix = [
                 [1, 2, 3],
@@ -114,7 +115,14 @@ def defineMatrix(x):
                 [6, 5, 4],
                 [3, 2, 1]
                 ]
+        elif x == 3:
+            matrix = [
+                [90, 114, 138],
+                [54, 69, 84],
+                [18, 24, 30]
+                ]
     return matrix
+
 
 if __name__ == "__main__":
     main()

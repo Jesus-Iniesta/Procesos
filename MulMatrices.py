@@ -6,7 +6,7 @@ def multiply_matrices(A, B, C, n, start, end):
     for i in range(start, end):
         for j in range(n):
             for k in range(n):
-                C[i][j][k] = A[i][k] * B[k][j]
+                C[i][j][k] += A[i][k] * B[k][j]
 
 # Función para realizar el paso 2 del algoritmo
 def step_two(C, n, L):
@@ -35,13 +35,3 @@ def MatMultCREW(A, B, C, n):
     # Paso 2: Realizar la suma acumulativa
     for L in range(1, int(math.log2(n)) + 1):
         step_two(C, n, L)
-
-# Ejemplo de uso
-#if __name__ == "__main__":
-#    n = 3
-#    A = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-#    B = [[9, 8, 7], [6, 5, 4], [3, 2, 1]]
-#    C = Array('i', [[[0] * n for _ in range(n)] for _ in range(n)])
-
-#    MatMultCREW(A, B, C, n)
-#    print(C[:])
